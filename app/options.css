@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #052733;
+}
+.l-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+}
+.l-header,
+.l-main,
+.l-footer {
+    max-width: 100%;
+    padding: 1rem;
+    width: 640px;
+}
+.l-header_head {
+    font-size: 16px;
+    margin: 24px 0;
+}
+.l-main .container {
+    padding-bottom: 1.5rem;
+}
+.l-main .container:not(:first-of-type) {
+    padding-top: 1rem;
+}
+.l-main_head {
+    font-size: 14px;
+    margin: 21px 0 14px;
+}
+.l-main-p {
+    margin-bottom: 2px;
+}
+.l-main-p:last-of-type {
+    margin-bottom: 12px;
+}
+.l-main code {
+    padding: 0 0.2em;
+    font-style: italic;
+}
+input,
+textarea {
+    background-color: transparent;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 0.4em;
+}
+textarea {
+    resize: vertical;
+    height: 10em;
+}
+.c-btn {
+    color: rgb(138, 180, 248);
+    background-color: transparent;
+    padding: 0.6em 1em;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
+.l-footer p {
+    font-size: 11px;
+    text-align: center;
+}
+@media (prefers-color-scheme: light) {
+    .l-header,
+    .l-main,
+    .l-footer {
+        background-color: #a7e2f6;
+        color: #052733;
+    }
+    .l-main .container {
+        border-bottom: 1px solid #62cbee;
+    }
+    .l-main code {
+        color: #0d5d78;
+    }
+    .c-btn {
+        border: 1px solid #62cbee;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .l-header,
+    .l-main,
+    .l-footer {
+        background-color: #08394a;
+        color: #a7e2f6;
+    }
+    .l-main .container:not(:last-of-type) {
+        border-bottom: 1px solid #0d5d78;
+    }
+    .l-main code {
+        color: #1492bd;
+    }
+    input {
+        border: 1px solid #0d5d78;
+    }
+    input,
+    textarea {
+        color: #a7e2f6;
+    }
+    .c-btn {
+        border: 1px solid #0d5d78;
+    }
+}

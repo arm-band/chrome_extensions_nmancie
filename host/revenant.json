@@ -1,0 +1,9 @@
+{
+    "name": "transi.nmancie.revenant",
+    "description": "N-mancie fait revenir IE.",
+    "path": "revenant.bat",
+    "type": "stdio",
+    "allowed_origins": [
+      "chrome-extension://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/"
+    ]
+}

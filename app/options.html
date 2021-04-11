@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-mancie - 設定</title>
+    <link rel="stylesheet" href="./options.css">
+</head>
+<body>
+    <div class="l-wrapper">
+        <header class="l-header">
+            <h1 class="l-header_head">設定</h1>
+        </header>
+        <main class="l-main">
+            <div class="container">
+                <h2 class="l-main_head"><label for="pageUrl">ページURL</label></h2>
+                <p class="l-main-p">拡張機能が動作する対象となる URL を指定してください。</p>
+                <p class="l-main-p">URL は フルURL (例: <code>https://example.jp/hoge/piyo</code>)、<br>
+                    ドメインのみなどの部分的な URL (例: <code>example.jp</code>)のどちらでも構いません。</p>
+                <p class="l-main-p">ワイルドカードや正規表現は使用できません。部分一致のみです。</p>
+                <input type="text" name="pageUrl" id="pageUrl">
+            </div>
+            <div class="container">
+                <h2 class="l-main_head"><label for="actionUrl">IE で開き直す URL</label></h2>
+                <p class="l-main-p">IE で開き直すページの URL を記入してください。</p>
+                <p class="l-main-p">1行1 URL 、改行区切りです。</p>
+                <p class="l-main-p">ワイルドカードや正規表現は使用できません。部分一致のみです。</p>
+                <textarea name="actionUrl" id="actionUrl"></textarea>
+            </div>
+            <div class="container">
+                <button type="submit" class="c-btn c-btnSave" id="c-btnSave">保存</button>
+                <p class="l-main-p" id="c-saveMsg"></p>
+            </div>
+        </main>
+        <footer class="l-footer">
+            <p>&#169; 2021 アルム＝バンド</p>
+        </footer>
+    </div>
+    <script src="./options.js"></script>
+</body>
+</html>

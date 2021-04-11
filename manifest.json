@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "N-mancie",
+    "description": "N-mancie fait revenir IE.",
+    "version": "1.0.3",
+    "background": {
+        "scripts": [
+            "transi.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "background.js"
+            ]
+        }
+    ],
+    "app": {
+        "launch": {
+            "local_path": "./app/index.html"
+        }
+    },
+    "options_page": "./app/options.html",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "nativeMessaging"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "icons": {
+        "128": "./app/icon/nmancie.png"
+    }
+}
