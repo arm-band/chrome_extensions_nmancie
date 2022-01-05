@@ -1,3 +1,21 @@
+// writefile
+async function writeFileToothWarrior(fileHandle, contents) {
+    // writable作成
+    const writable = await fileHandle.createWritable();
+    // コンテンツを書き込む
+    await writable.write(contents);
+    // ファイル閉じる
+    await writable.close();
+}
+// savefile
+async function saveFileToothWarrior(fileHandle, contents, saveFileOptions) {
+    if(!fileHandle) {
+        fileHandle = await window.showSaveFilePicker(saveFileOptions);
+    }
+    await writeFileToothWarrior(fileHandle, contents);
+    return fileHandle;
+}
+
 // Saves options to chrome.storage
 const disperseSkeleton = () => {
     const pageUrl = document.querySelector('#pageUrl').value;
@@ -14,6 +32,39 @@ const disperseSkeleton = () => {
         function() {
             const status = document.querySelector('#c-saveMsg');
             status.textContent = '保存されました';
+            // sites.xml
+            let sitesList = '';
+            for (const actUrl of actionUrlArray) {
+                sitesList += `
+    <site url="${actUrl}">
+        <compat-mode>IE11Enterprise</compat-mode>
+        <open-in>IE11</open-in>
+    </site>`;
+            }
+            const textContent = `<site-list version="2">
+    <created-by>
+        <tool>EMIESiteListManager</tool>
+        <version>10.0.14357.1004</version>
+        <date-created>01/17/2020 00:00:00</date-created>
+    </created-by>
+${sitesList}
+</site-list>
+`;
+            const saveFileOptions = {
+                types: [
+                    {
+                        description: 'xml file',
+                        accept: {
+                            'text/xml': [
+                                '.xml'
+                            ],
+                        },
+                    },
+                ],
+            };
+            let globalHandle;
+            // savefile
+            globalHandle = saveFileToothWarrior(globalHandle, textContent, saveFileOptions);
         }
     );
 };

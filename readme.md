@@ -2,7 +2,7 @@
 
 ## Abstract
 
-特定のWebページ内の特定の URL を開くときのみ、 Internet Explorer で該当 URL を開き直す Chrome拡張機能 です。
+特定のWebページ内の特定の URL を開くときのみ、 Edge で該当 URL を開き直す Chrome拡張機能 です。
 
 ## Usage
 
@@ -18,4 +18,7 @@
 
 1. Chrome の拡張機能画面から N-mancieの「詳細」ボタンをクリック
 2. 「拡張機能のオプション」をクリック
-3. 「ページURL」と「IE で開き直す URL」を指定してください
+3. 「ページURL」と「Edge で開き直す URL」を指定してください
+4. 「Edge で開き直す URL」の一覧ファイルを以下のように保存してください
+    - N-mancie の `host`フォルダ下 (`register-host.bat` 等があるフォルダ) に
+    - `sites.xml` という名前で保存

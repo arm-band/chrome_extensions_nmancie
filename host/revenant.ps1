@@ -21,11 +21,9 @@ try {
     $obj = $msg | ConvertFrom-Json
 
     $url = $obj.args # 引数をURLに指定
-    $shell = New-Object -ComObject Shell.Application
-    $ie = New-Object -ComObject InternetExplorer.Application # IE起動
-    $ie = $objShell.Windows() | ? {$_.Name -eq "Internet Explorer"} | Select-Object -First 1
-    $ie.Visible = $true
-    $ie.Navigate($url, 4)
+#    $edge = Start-Process shell:AppsFolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge $url
+    Start-Process shell:AppsFolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge $url
+#    Sleep 2
 
     return Respond @{message="ok"}
 } catch [Exception] {
