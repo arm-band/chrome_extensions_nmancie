@@ -4,10 +4,9 @@ const zombie = (powder) => {
         // only act in certain page
         console.log('transi')
         const elements = document.querySelectorAll('a');
-
         for (var i = 0; i < elements.length; i++) {
             // check all link
-            elements[i].addEventListener('click', function(e) {
+            elements[i].onclick = function (e) {
                 if(
                     typeof e.target !== 'undefined'
                     && e.target !== null
@@ -30,8 +29,8 @@ const zombie = (powder) => {
                         if (targetLink.href.indexOf(actUrl) !== -1) {
                             e.preventDefault();
 
-    //                        console.log(chrome.runtime.getManifest())
-    //                        console.log("" + Object.getOwnPropertyNames(chrome.runtime));
+//                                    console.log(chrome.runtime.getManifest())
+//                                    console.log("" + Object.getOwnPropertyNames(chrome.runtime));
                             // content script (this) -> event page (transi.js)
                             // chrome.tabs は content script ではアクセスできず、 event page からしかアクセスできないので sendMessage で受け渡す
                             chrome.runtime.sendMessage(
@@ -46,7 +45,7 @@ const zombie = (powder) => {
                         }
                     }
                 }
-            });
+            };
         }
     }
 };
@@ -79,8 +78,31 @@ const bokor = () => {
             else {
                 powder.pageUrl = items.pageUrl;
                 powder.actionUrl = JSON.parse(items.actionUrl);
-                // call action with options
-                zombie(powder);
+                const qualia = document.querySelector('#root');
+                if (qualia !== null && qualia !== undefined) {
+                    // React app
+                    const bioelectricalSignaling = {
+                        childList: true,
+                        subtree: true
+                    };
+                    const LeibnizsWindmill = new MutationObserver (function (mutations) {
+                        //監視を一時停止
+                        LeibnizsWindmill.disconnect();
+                        // call action with options
+                        zombie(powder);
+                        //監視を再開
+                        LeibnizsWindmill.observe(qualia, bioelectricalSignaling);
+                    });
+                    LeibnizsWindmill.observe(
+                        qualia,
+                        bioelectricalSignaling
+                    );
+                }
+                else {
+                    // not React app
+                    // call action with options
+                    zombie(powder);
+                }
             }
         }
     );

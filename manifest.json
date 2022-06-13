@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "N-mancie",
     "description": "N-mancie fait revenir IE.",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "background": {
         "scripts": [
             "transi.js"
